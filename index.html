@@ -1,0 +1,365 @@
+<!DOCTYPE html> <!-- document declaration  -->
+<html>
+
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <h1 style="color:white">INTERACTIVE MUSIC! </h1>
+
+   
+
+    <audio id="audioFile">
+        <source src="https://khaalipaper.com/blog/shree-hanuman-chalisa.ogg" type="audio/ogg">
+        <source src="https://khaalipaper.com/blog/shree-hanuman-chalisa.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+
+    <button onclick="playAudio()" type="button">Play Audio</button>
+    <button onclick="pauseAudio()" type="button">Pause Audio</button>
+    <button onClick="connect()" type="button">Connect!</button>
+
+  
+
+    <script>
+        var x = document.getElementById("myAudio");
+        function playAudio() {
+            x.play();
+        }
+        function pauseAudio() {
+            x.pause();
+        }
+    </script>
+    <script>
+        function connect() {
+            if ('geolocation' in navigator) {
+                console.log('geolocation available');
+                navigator.geolocation.getCurrentPosition(async position => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    document.getElementById('latitude').textContent = lat;
+                    document.getElementById('longitude').textContent = lon;
+
+                    const data = { lat, lon };
+                    const options = {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    };
+                    const response = await fetch('/', options);
+                    const json = await response.json();
+                    console.log(json);
+                });
+            } else {
+                console.log('geolocation not available');
+            }
+        }
+    </script>
+    <p style="color:white">
+        latitude: <span id="latitude"></span></br>
+        longitude: <span id="longitude"></span>
+    </p>
+
+
+    <link rel="stylesheet"
+        href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <style>
+        body {
+            background: #1e1c34;
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+        }
+
+        h1 {
+            margin-bottom: 40px;
+            font-family: sans-serif;
+
+        }
+
+        h2 {
+            font-size: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-weight: normal;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 1);
+        }
+
+        #holderion {
+            display: inline-block;
+            padding: 10px 20px;
+            width: 200px;
+            background: rgba(41, 38, 68, 0.3);
+            margin: 30px auto;
+            box-shadow: 0 0 0 1px #1c1a35 inset;
+        }
+
+        #holderion2 {
+            display: inline-block;
+            padding: 10px 20px;
+            width: 200px;
+            background: rgba(41, 38, 68, 0.3);
+            margin: 30px auto;
+            box-shadow: 0 0 0 1px #1c1a35 inset;
+        }
+
+
+        #idnumber {
+            display: none;
+        }
+
+        #idnumber2 {
+            display: none;
+        }
+
+        .color {
+            max-width: 98%;
+            background-color: #696969;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 10px auto;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            border-radius: 7px;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+        }
+
+        .container {
+            display: inline-block;           
+        }
+
+        .color2 {
+            max-width: 98%;
+            background-color: #0000FF;
+            color: #fff;
+            padding: 5px 10px;
+            margin: 10px auto;
+            -webkit-border-radius: 7px;
+            -moz-border-radius: 7px;
+            border-radius: 7px;
+            text-align: center;
+            text-shadow: 0 1px 0 rgba(0, 0, 0, 0.8);
+            -webkit-transition: all 1s ease-in-out;
+            -moz-transition: all 1s ease-in-out;
+            -o-transition: all 1s ease-in-out;
+            transition: all 1s ease-in-out;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 110px;
+            height: 60px;
+            margin: 0 10px;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .switch input {display:none}
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 50px;
+            width: 50px;
+            left: 5px;
+            bottom: 5px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50px;
+        }
+
+        input:checked + .slider {
+            background-color: #ff278c;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(50px);
+        }
+
+        #uislider .ui-widget-header {
+            background: #696969 !important;
+            opacity: 0.5;
+        }
+
+
+        #uislider2 .ui-widget-header {
+            background: #696969 !important;
+            opacity: 0.5;
+        }
+
+        #uislider {
+            width: 98%;
+            margin: 7px auto;
+            background: #696969;
+            /* Old browsers */
+            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJkZTI1NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI2U1OTgyYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc1JSIgc3RvcC1jb2xvcj0iI2ZmMTQxNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjE0MTQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+            background: -webkit-linear-gradient(left, #696969 0%, #A9A9A9 33%, #FFFF00 75%, #FFD700 100%);
+            background: -moz-linear-gradient(left, #696969 0%, #A9A9A9 33%, #FFFF00 75%, #FFD700 100%);
+            background: -o-linear-gradient(left, #696969 0%, #A9A9A9 33%, #FFFF00 75%, #FFD700 100%);
+            background: linear-gradient(to right, #696969 0%, #A9A9A9 33%, #FFFF00 75%, #FFD700 100%);
+            /* FF3.6+ */
+            /* Chrome,Safari4+ */
+            /* Chrome10+,Safari5.1+ */
+            /* Opera 11.10+ */
+            /* IE10+ */
+            /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2de254', endColorstr='#ff1414', GradientType=1);
+            /* IE6-8 */
+        }
+
+        #uislider2 {
+            width: 98%;
+            margin: 7px auto;
+            background: #696969;
+            /* Old browsers */
+            /* IE9 SVG, needs conditional override of 'filter' to 'none' */
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIxMDAlIiB5Mj0iMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJkZTI1NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjMzJSIgc3RvcC1jb2xvcj0iI2U1OTgyYiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9Ijc1JSIgc3RvcC1jb2xvcj0iI2ZmMTQxNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmZjE0MTQiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+            background: -webkit-linear-gradient(left, #0000CD 0%, #1E90FF 33%, #FF7F50 75%, #FF4500 100%);
+            background: -moz-linear-gradient(left, #0000CD 0%, #1E90FF 33%, #FF7F50 75%, #FF4500 100%);
+            background: -o-linear-gradient(left, #0000CD 0%, #1E90FF 33%, #FF7F50 75%, #FF4500 100%);
+            background: linear-gradient(to right, #0000CD 0%, #1E90FF 33%, #FF7F50 75%, #FF4500 100%);
+            /* FF3.6+ */
+            /* Chrome,Safari4+ */
+            /* Chrome10+,Safari5.1+ */
+            /* Opera 11.10+ */
+            /* IE10+ */
+            /* W3C */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2de254', endColorstr='#ff1414', GradientType=1);
+            /* IE6-8 */
+        }
+
+        .ui-state-default,
+        .ui-widget-content .ui-state-default,
+        .ui-widget-header .ui-state-default {
+            top: -4px;
+            left: 2px;
+            width: 10;
+            height: 10;
+            background: #000000;
+            border-radius: 50%;
+            z-index: 2;
+        }
+
+        #greybox {
+            display: inline-block;
+            background-color: grey;
+            height: 100px;
+            width: 15px;
+        }
+
+        #yellowbox {
+            display: inline-block;
+            background-color: yellow;
+            height: 100px;
+            width: 15px;
+        }
+
+        #bluebox {
+            display: inline-block;
+            background-color: blue;
+            height: 100px;
+            width: 15px;
+        }
+
+        #orangebox {
+            display: inline-block;
+            background-color: #FF4500;
+            height: 100px;
+            width: 15px;
+        }
+
+        .
+    </style>
+    <!-- Work for DecomDesign -->
+    <div>
+    <div class="container">
+        <h1 style="color:white">Track Location: </h1>
+        <label class="switch">
+        <input type="checkbox" checked>
+            <span class="slider"></span>
+        </label>
+    </div>
+</div>
+    
+    <div>
+    <div id="greybox"></div>
+
+    <div id="holderion">
+            <div id="uislider"></div>
+            <div class="color"></div>
+            <input type="text" id="idnumber" display: none;">
+        </div>
+        <div id="yellowbox"></div>
+        </div>
+    <div>
+    <div id="bluebox"></div>
+
+    <div id="holderion2">
+        <div id="uislider2"></div>
+        <div class="color2"></div>
+        <input type="text2" id="idnumber2" display: none;">
+    </div>
+    <div id="orangebox"></div>
+</div>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script>
+
+
+        $("#uislider").slider({
+            range: "max",
+
+            slide: function (event, ui) {
+                $("#idnumber").val(ui.value);
+                if (ui.value >= 1 && ui.value <= 5) {
+                    $('.color').css("background-color", 'grey');
+                }
+                if (ui.value >= 11 && ui.value <= 15) {
+                    $('.color').css("background-color", 'yellow')
+                }
+            }
+        });
+
+        $("#uislider2").slider({
+            range: "max",
+
+            slide: function (event, ui) {
+                $("#idnumber2").val(ui.value);
+                if (ui.value >= 1 && ui.value <= 5) {
+                    $('.color2').css("background-color", 'blue');
+                }
+                if (ui.value >= 11 && ui.value <= 15) {
+                    $('.color2').css("background-color", 'orange')
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>
