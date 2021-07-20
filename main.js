@@ -1,9 +1,9 @@
-var x = document.getElementById("myAudio");
+var music = document.getElementById("audioFile");
 function playAudio() {
-    x.play();
+    music.play();
 }
 function pauseAudio() {
-    x.pause();
+    music.pause();
 }
 
 function connect() {
@@ -38,13 +38,8 @@ $("#uislider").slider({
     range: "max",
 
     slide: function (event, ui) {
-        $("#idnumber").val(ui.value);
-        if (ui.value >= 1 && ui.value <= 5) {
-            $('.color').css("background-color", 'grey');
-        }
-        if (ui.value >= 11 && ui.value <= 15) {
-            $('.color').css("background-color", 'yellow')
-        }
+        //take ui.value 0-100 make it the opacity of the yellow element
+        $("#yellow-bg").css("opacity", ui.value+'%');      
     }
 });
 
@@ -52,12 +47,6 @@ $("#uislider2").slider({
     range: "max",
 
     slide: function (event, ui) {
-        $("#idnumber2").val(ui.value);
-        if (ui.value >= 1 && ui.value <= 5) {
-            $('.color2').css("background-color", 'blue');
-        }
-        if (ui.value >= 11 && ui.value <= 15) {
-            $('.color2').css("background-color", 'orange')
-        }
+        $("#orange-bg").css("opacity", ui.value+"%");
     }
 });
