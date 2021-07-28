@@ -52,6 +52,7 @@ $("#uislider2").slider({
 $( "#uislider" ).on( "tap", function( event, ui ) {
     //console.log('mobile event:',event);
     console.log('mobile ui', ui);
+    $("#yellow-bg").css("background", 'red');  
 } );
 
 // $('#uislider').bind('touchmove',function(e){
