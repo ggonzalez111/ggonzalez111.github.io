@@ -49,17 +49,17 @@ $("#uislider2").slider({
     }
 });
 
-$( "#uislider" ).on( "tap", function( event, ui ) {
-    //console.log('mobile event:',event);
-    console.log('mobile ui', ui);
-    $("#yellow-bg").css("background", 'red');  
-} );
+// $( "#uislider" ).on( "tap", function( event, ui ) {
+//     //console.log('mobile event:',event);
+//     console.log('mobile ui', ui);
+//     $("#yellow-bg").css("background", 'red');  
+// } );
 
-// $('#uislider').bind('touchmove',function(e){
+//  $('#uislider').bind('touchmove',function(e){
 //     e.preventDefault();
-//     console.log("mobile" , e); 
-//     //$("#yellow-bg").css("opacity", '20%');      
-//});
+//      console.log("mobile" , e); 
+//      $("#yellow-bg").css("opacity", '20%');      
+// });
 
 
 
