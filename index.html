@@ -1,10 +1,12 @@
 <!DOCTYPE html> <!-- document declaration  -->
 <html>
+
 <head>
 
-<link rel="stylesheet" href="style.css">
- 
+    <link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
     <h1 style="color:white">INTERACTIVE MUSIC! </h1>
 
@@ -20,26 +22,26 @@
 
     <link rel="stylesheet"
         href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
-   
+
     <div>
-    <div class="container">
-        <h1 style="color:white">Track Location: </h1>
-        <label class="switch" for="track-me">
-            <input id="track-me" type="checkbox" style="display:none;" checked>
-            <span class="slider"></span>
-            <p class="hide-when-no-tracking" style="color:white">
-                latitude: <span id="latitude"></span></br>
-                longitude: <span id="longitude"></span>
+        <div class="container">
+            <h1 style="color:white">Track Location: </h1>
+            <label class="switch" for="track-me">
+                <input id="track-me" type="checkbox" style="display:none;" checked>
+                <span class="slider"></span>
+                <p class="hide-when-no-tracking" style="color:white">
+                    latitude: <span id="latitude"></span></br>
+                    longitude: <span id="longitude"></span>
                 </p>
-                </label>
+            </label>
 
+        </div>
     </div>
-</div>
- 
-    <div>
-    <div id="greybox"></div>
 
-    <div id="holderion">
+    <div>
+        <div id="greybox"></div>
+
+        <div id="holderion">
             <div id="uislider"></div>
             <div class="color" style="padding:0px; background-color: gray;">
                 <div id="yellow-bg" style="background-color: yellow; height:10px;min-width:100%; opacity:0%"></div>
@@ -47,19 +49,19 @@
             <input type="text" id="idnumber" display: none;">
         </div>
         <div id="yellowbox"></div>
-        </div>
-    <div>
-    <div id="bluebox"></div>
-
-    <div id="holderion2">
-        <div id="uislider2"></div>
-        <div class="color2" style="padding: 0px; background-color: blue;">
-            <div id="orange-bg" style="background-color: #FF4500; height:10px;min-width:100%; opacity:0%"></div>
-        </div>
-        <input type="text2" id="idnumber2" display: none;">
     </div>
-    <div id="orangebox"></div>
-</div>
+    <div>
+        <div id="bluebox"></div>
+
+        <div id="holderion2">
+            <div id="uislider2"></div>
+            <div class="color2" style="padding: 0px; background-color: blue;">
+                <div id="orange-bg" style="background-color: #FF4500; height:10px;min-width:100%; opacity:0%"></div>
+            </div>
+            <input type="text2" id="idnumber2" display: none;">
+        </div>
+        <div id="orangebox"></div>
+    </div>
 
 
 
@@ -70,18 +72,31 @@
 
 
     <h1 style="color:white">PHONE SLIDERS! </h1>
-    <div style="color:white" data-role= "rangeslider">
 
-        <label for="range-1a">Rangeslider:</label>
-        <input name="range-1a" id="range-1a" min="0" max="100" value="0" type="range" />
-      </div>
-      <div style="color:white" data-role= "rangeslider">
-        
-        <label for="range-1a">Rangeslider:</label>
-        <input name="range-1a" id="range-1a" min="0" max="100" value="0" type="range" />
+    <div class="phoneslider-section">
+        <div class="row">
+            <div id="greybox"></div>
+            <div id="holderion3">
+                <div class="color" style="padding:0px; background-color: gray;">
+                    <div class="input-wrapper" style="color:white" data-role="rangeslider">
+                        <label for="range-1a">Rangeslider:</label>
+                        <input name="range-1a" id="range-1a" min="0" max="100" value="0" type="range" />
+                    </div>
+                </div>
+                <div id="yellowbox"></div>
+            </div>
 
-      </div>
-
+            <div class="row">
+                <div id="bluebox"></div>
+                <div id="holderion4">
+                    <div class="input-wrapper" style="color:white" data-role="rangeslider">
+                        <label for="range-1a">Rangeslider:</label>
+                        <input name="range-1a" id="range-1a" min="0" max="100" value="0" type="range" />
+                    </div>
+                </div>
+                <div id="orangebox"></div>
+            </div>
+        </div>
 
 </body>
 
