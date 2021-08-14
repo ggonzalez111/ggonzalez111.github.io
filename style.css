@@ -266,7 +266,8 @@ input:checked + .slider:before {
 }
 
 #greybox {
-    display: inline-block;
+    display: inline-flex;
+    line-height: 1.5;
     background-color: grey;
     height: 75px;
     width: 15px;
